@@ -1,0 +1,50 @@
+using System;
+using System.Collections.Generic;
+using System.Collections;
+using System.Linq;
+using System.Text;
+
+namespace ConsoleApplication1
+{
+    class Program
+    {
+        static void SeeHT(IEnumerable ht)
+        {
+            foreach (DictionaryEntry el in ht)
+            {
+                Console.WriteLine(el.Key + " - " + el.Value);
+            }
+        }
+        static void DPV(Hashtable ht, object vrednost)
+        {
+            object kljuc = null; // dajemo vrednost kljucu
+            foreach (DictionaryEntry el in ht)
+            {
+                if (el.Value == vrednost)
+                    kljuc = el.Key;
+            }
+            if (kljuc != null)
+                ht.Remove(kljuc);
+        }
+        static void Main(string[] args)
+        {
+            Hashtable zaposleni = new Hashtable();
+            zaposleni.Add("W01", "Marko");
+            zaposleni.Add("W02", "Ivan");
+            zaposleni.Add("W03", "Jovan");
+            zaposleni.Add("B01", "Srdjan");
+            zaposleni.Add("B02", "Petar");
+            Console.WriteLine("Spisak zaposlenih je");
+            SeeHT(zaposleni);
+            Console.WriteLine("\nKada uklnimo radnika W02, izgled je:");
+            zaposleni.Remove("W02");
+            SeeHT(zaposleni);
+            Console.WriteLine("\nKada uklonimo radnika sa imenom Jovan, izgled je:");
+            DPV(zaposleni, "Jovan");
+            SeeHT(zaposleni);
+            Console.ReadLine();
+
+
+        }
+    }
+}

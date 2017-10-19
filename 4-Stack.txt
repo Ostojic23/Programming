@@ -1,0 +1,32 @@
+using System;
+using System.Collections.Generic;
+using System.Collections;
+using System.Linq;
+using System.Text;
+
+namespace ConsoleApplication2
+{
+    class Program
+    {
+        static void SS(Stack ms)
+        {
+            foreach (object el in ms)
+            {
+                Console.Write(el + " ");
+            }
+        }
+        static void Main(string[] args)
+        {
+            Stack ms = new Stack();
+            ms.Push("Djordje");
+            ms.Push("Jasa");
+            ms.Push("!");
+            Console.WriteLine("Izgled steka je:");
+            SS(ms);
+            Console.WriteLine("\nBrisanje prvog clana:");
+            ms.Pop();
+            SS(ms);
+            Console.ReadLine();
+        }
+    }
+}

@@ -1,0 +1,52 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Collections;
+
+namespace ConsoleApplication1
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            ArrayList MojaLista = new ArrayList();
+            MojaLista.Add("Rakicevic");
+            MojaLista.Add("Petrovic");
+            MojaLista.Add("Ostojic");
+            MojaLista.Add("Radojicic");
+            MojaLista.Add("Spasojevic");
+            MojaLista.Add("Tepic");
+            MojaLista.Add("Makljenovic");
+            MojaLista.Add("Curcic");
+            MojaLista.Add("Petrovic");
+            MojaLista.Add("Stevaonovic");
+            Console.WriteLine("Izgled liste je:");
+            PrikaziListu(MojaLista);
+            Console.WriteLine("\nBroj el. liste je:" + MojaLista.Count);
+            Console.WriteLine("\nKapacitet liste je:" + MojaLista.Capacity);
+            MojaLista.TrimToSize();
+            Console.WriteLine("\nNovi kapacitet liste je:" + MojaLista.Capacity);
+            MojaLista.Sort();
+            Console.WriteLine("\nSortirana lista je:");
+            PrikaziListu(MojaLista);
+            MojaLista.RemoveAt(4);
+            Console.WriteLine("\nIzgled liste nakon brisanja 5-og clana je:");
+            PrikaziListu(MojaLista);
+            MojaLista.Remove("Spasojevic");
+            Console.WriteLine("\nIzgled liste nakon brisanja Spasojevica je:");
+            PrikaziListu(MojaLista);
+            Console.WriteLine("\nBroj el. liste je:" + MojaLista.Count);
+            Console.WriteLine("\nKapacitet liste je:" + MojaLista.Capacity);
+            Console.ReadLine();
+            
+        }
+        static void PrikaziListu(ArrayList lista)
+        {
+            foreach (Object el in lista)
+            {
+                Console.WriteLine(el);
+            }
+        }
+    }
+}

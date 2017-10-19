@@ -1,0 +1,32 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Collections;
+
+namespace ConsoleApplication1
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            ArrayList mojaLista = new ArrayList();
+            mojaLista.Add("Djordje");
+            mojaLista.Add("Ostojic");
+            mojaLista.Add("i Jasa mojaa :D");
+            Console.WriteLine("Broj el. liste je: " + mojaLista.Count);
+            Console.WriteLine("\nKapacitet liste je: " + mojaLista.Capacity);
+            Console.WriteLine("\nIzgled liste je:");
+            PrikaziListu(mojaLista);
+            Console.ReadLine();
+        }
+            static void PrikaziListu(ArrayList lista)
+            {
+                foreach(Object el in lista)
+                {
+                    Console.WriteLine(el);
+                }
+            }
+        }
+    }
+
