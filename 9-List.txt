@@ -1,0 +1,66 @@
+using System;
+using System.Collections.Generic;
+using System.Collections;
+using System.Linq;
+using System.Text;
+
+namespace ConsoleApplication1
+{
+    public class Osoba
+    {
+        public string ime;
+        public int ID;
+
+        public Osoba(string ime, int ID)
+        {
+            this.ime = ime;
+            this.ID = ID;
+        }
+        public override string ToString()
+        {
+            return "Ime: " + this.ime + " ; ID: " + this.ID;
+        }
+        public override bool Equals(object obj)
+        {
+            if (obj == null) return false;
+            Osoba druga = obj as Osoba;
+            if (druga == null) return false;
+            if (druga.ID == this.ID) return true;
+            else return false;
+        }
+        public override int GetHashCode()
+        {
+            return ID;
+        }
+    }
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            List<Osoba> osobe = new List<Osoba>();
+            osobe.Add(new Osoba("Nenad", 241));
+            osobe.Add(new Osoba("Uros", 123));
+            osobe.Add(new Osoba("Stefan", 435));
+            osobe.Add(new Osoba("Nikola", 575));
+            osobe.Add(new Osoba("Luka", 767));
+            foreach (Osoba el in osobe)
+            {
+                Console.WriteLine(el);
+            }
+            osobe.Insert(2, new Osoba("Pedja", 313));
+            osobe.RemoveAt(1);
+            Console.WriteLine();
+            foreach (Osoba el in osobe)
+            {
+                Console.WriteLine(el);
+            }
+            osobe.Remove(new Osoba("AAAAA", 435));
+            Console.WriteLine();
+            foreach (Osoba el in osobe)
+            {
+                Console.WriteLine(el);
+            }
+            Console.ReadLine();
+        }
+    }
+}
