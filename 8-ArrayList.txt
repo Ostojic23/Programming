@@ -1,0 +1,48 @@
+using System;
+using System.Collections.Generic;
+using System.Collections;
+using System.Linq;
+using System.Text;
+
+namespace ConsoleApplication1
+{
+    class Program
+    {
+        static void SEE_HL(IEnumerable ht)
+        {
+            foreach (DictionaryEntry el in ht)
+            {
+                Console.WriteLine(el.Key + " - " + el.Value);
+            }
+        }
+        static void DPV(Hashtable ht, Object vr)
+        {
+            Object kljuc = null;
+            foreach (DictionaryEntry el in ht)
+            {
+                if (el.Value == vr)
+                    kljuc = el.Key;
+            }
+            if (kljuc != null)
+                ht.Remove(kljuc);
+        }
+        static void Main(string[] args)
+        {
+            Hashtable ucenici = new Hashtable();
+            ucenici.Add("23", "Djordje");
+            ucenici.Add("12", "Jelena");
+            ucenici.Add("16", "Ivana");
+            ucenici.Add("4", "Petar");
+            ucenici.Add("9", "Marija");
+            Console.WriteLine("Izgled liste je:");
+            SEE_HL(ucenici);
+            ucenici.Remove("4");
+            Console.WriteLine("\nKada uklonimo ucenika sa kljucem 4, izgled tabele je:");
+            SEE_HL(ucenici);
+            DPV(ucenici, "Jelena");
+            Console.WriteLine("\nKada uklonimo ucenika 'Jelena', izgled tabele je:");
+            SEE_HL(ucenici);
+            Console.ReadLine();
+        }
+    }
+}
