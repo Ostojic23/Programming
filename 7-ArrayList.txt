@@ -1,0 +1,35 @@
+using System;
+using System.Collections.Generic;
+using System.Collections;
+using System.Linq;
+using System.Text;
+
+namespace ConsoleApplication1
+{
+    class Program
+    {
+        static void SAL(IEnumerable al)
+        {
+            foreach (Object el in al)
+            {
+                Console.WriteLine(el);
+            }
+        }
+        static void Main(string[] args)
+        {
+            ArrayList automobili = new ArrayList();
+            Console.WriteLine("Unesite 7 automobila:");
+            for (int i = 0; i < 7; i++)
+            {
+                automobili.Add(Console.ReadLine());
+            }
+            Console.WriteLine("\nIzgled liste je:");
+            SAL(automobili);
+            Console.WriteLine("\nKapacitet liste je: " + automobili.Capacity + " ; Broj el. liste je: " + automobili.Count);
+            automobili.Sort();
+            Console.WriteLine("\nIzgled sortirane liste je:");
+            SAL(automobili);
+            Console.ReadLine();
+        }
+    }
+}
